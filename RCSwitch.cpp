@@ -297,15 +297,18 @@ char* RCSwitch::getCodeWordA(const char* sGroup, const char* sDevice, bool bStat
   int nReturnPos = 0;
 
   for (int i = 0; i < 5; i++) {
-    sReturn[nReturnPos++] = (sGroup[i] == '0') ? 'F' : '0';
+    // sReturn[nReturnPos++] = (sGroup[i] == '0') ? 'F' : '0';
+    sReturn[nReturnPos++] = (sGroup[i] == '1') ? '1' : 'F';
   }
 
   for (int i = 0; i < 5; i++) {
     sReturn[nReturnPos++] = (sDevice[i] == '0') ? 'F' : '0';
   }
 
-  sReturn[nReturnPos++] = bStatus ? '0' : 'F';
+  // sReturn[nReturnPos++] = bStatus ? '0' : 'F';
+  // sReturn[nReturnPos++] = bStatus ? 'F' : '0';
   sReturn[nReturnPos++] = bStatus ? 'F' : '0';
+  sReturn[nReturnPos++] = bStatus ? '0' : 'F';
 
   sReturn[nReturnPos] = '\0';
   return sReturn;
